@@ -20,11 +20,11 @@
   become: yes
   become_method: sudo
   lineinfile: "dest=/etc/sudoers state=present regexp='^%sudo' line='%sudo ALL=(ALL) NOPASSWD: ALL'"
-  
+
 - name: Download cuckoo
   become: yes
   become_method: sudo
-  get_url: url=https://github.com/cuckoosandbox/cuckoo/archive/{{ cuckoo_version }}.tar.gz dest=/tmp mode=0440
+  get_url: url=https://downloads.cuckoosandbox.org/{{ cuckoo_version }}/{{ cuckoo_version }}.tar.gz dest=/tmp mode=0440
 
 - name: Extract cuckoo
   become: yes
